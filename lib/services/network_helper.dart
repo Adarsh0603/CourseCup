@@ -1,28 +1,30 @@
-import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
-import 'package:provider/provider.dart';
-import 'package:courselister/services/data.dart';
 class NetworkHelper {
   String udacityUrl = 'https://swift-clarity-249611.firebaseio.com/.json';
 
 
 
 
-  Future<List> getData(String searchData) async {
+  Future<Map> getData(String searchData) async {
     Response response = await get(udacityUrl);
     var jsonResponse = jsonDecode(response.body);
 
     List<Map> searchedCourses = [];
+    List<Map> searchedPaidCourses=[];
     for (Map course in jsonResponse)
       if (course['title']
           .contains(RegExp('$searchData', caseSensitive: false))) {
         if(course['cost']=="Free")
             searchedCourses.add(course);
+        else if(course['cost']=="Paid")
+          searchedPaidCourses.add(course);
       }
 
-
-    print(searchedCourses);
-    return searchedCourses;
+    Map allCourses={
+        'free':searchedCourses,
+      'paid':searchedPaidCourses,
+    };
+    return allCourses;
   }
 }

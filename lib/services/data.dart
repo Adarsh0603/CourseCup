@@ -1,17 +1,16 @@
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
 class Data with ChangeNotifier{
   Data();
 String searchData='NEw';
 
-List<Map> searchedData;
+Map searchedData;
 bool isDone = false;
 
 void updateStatus(bool status){
   isDone=status;
   notifyListeners();
 }
-void getLists(List<Map> courseList)
+void getLists(Map courseList)
 {
   isDone=true;
   searchedData=courseList;

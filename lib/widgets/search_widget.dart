@@ -1,4 +1,3 @@
-import 'package:courselister/screens/free_course_list_section.dart';
 import 'package:courselister/services/network_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,7 @@ class SearchWidget extends StatelessWidget {
               builder: (context,data,child){
                 return TextField(
                     decoration: kSearchBoxInputDecoration,
-                    // textInputAction: TextInputAction.search,
+                     textInputAction: TextInputAction.search,
                     onSubmitted: (value) async {
                       data.changeData(value);
                       data.getLists(await NetworkHelper().getData(data.searchData));
@@ -38,7 +37,7 @@ class SearchWidget extends StatelessWidget {
               backgroundColor: fadedColor,
               radius: 25.0,
               child: Text(
-                "PAID",
+                "UDACITY",
                 style: kCostToggleTextStyle,
               ),
             ),

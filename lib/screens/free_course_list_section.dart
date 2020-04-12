@@ -1,9 +1,7 @@
-import 'package:courselister/services/network_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:courselister/widgets/free_course_card.dart';
 import 'package:courselister/constants.dart';
 import 'package:courselister/services/data.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 class FreeCourseListSection extends StatelessWidget {
@@ -17,14 +15,14 @@ class FreeCourseListSection extends StatelessWidget {
                 child: Consumer<Data>(builder: (context, data, child) {
                   return ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: Provider.of<Data>(context).searchedData.length,
+                    itemCount: Provider.of<Data>(context).searchedData['free'].length,
                     itemBuilder: (BuildContext context, int index) {
                       return FreeCourseCard(
-                        title: data.searchedData[index]['title'],
-                        category: data.searchedData[index]['category'],
-                        summary: data.searchedData[index]['summary'],
-                        level: data.searchedData[index]['level'],
-                        url: data.searchedData[index]['url'],
+                        title: data.searchedData['free'][index]['title'],
+                        category: data.searchedData['free'][index]['category'],
+                        summary: data.searchedData['free'][index]['summary'],
+                        level: data.searchedData['free'][index]['level'],
+                        url: data.searchedData['free'][index]['url'],
                       );
                     },
                   );

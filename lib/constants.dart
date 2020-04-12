@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 const Color fadedColor=Color(0xffF6F7FB);
 const Color fadedTextColor=Color(0xffC1C2C4);
+const Color paidCardColor=Color(0xffFFF1E8);
 
 const kFreeCoursesContainerBoxDecoration=BoxDecoration(
   borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0),topRight: Radius.circular(30.0)),
@@ -21,10 +22,17 @@ const kTitleTextStyle = TextStyle(
 
 
 const kSearchBoxInputDecoration = InputDecoration(
+  
   filled: true,
   prefixIcon: Icon(Icons.search),
   hintText: 'Search',
-  border: InputBorder.none,
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    borderSide: BorderSide.none,
+
+  ),
+
   fillColor: fadedColor,
   //TODO: circular corners
 
@@ -62,9 +70,19 @@ const kCardLevelStyle=TextStyle(
 
   fontSize: 12.0,
 );
-const kCardWidth=300.0;
-const kFreeCardContainerHeight=270.0;
+const kFreeCardWidth=280.0;
+const kFreeCardContainerHeight=0.0;
 const kFreeCardOuterPadding= EdgeInsets.symmetric(vertical: 40,horizontal: 10);
 
+
+const kPaidCardWidth=200.0;
 const kPaidCardContainerHeight=200.0;
 const kPaidCardOuterPadding= EdgeInsets.symmetric(vertical: 20,horizontal: 10);
+
+
+const kCourseTagStyle=TextStyle(
+  fontWeight: FontWeight.w800,
+  fontSize: 12,
+  color: Colors.lightBlueAccent,
+
+);

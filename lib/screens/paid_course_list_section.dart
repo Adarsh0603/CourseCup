@@ -15,14 +15,13 @@ class PaidCourseListSection extends StatelessWidget {
           child: Consumer<Data>(builder: (context, data, child) {
             return ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: Provider.of<Data>(context).searchedData.length,
+              itemCount: Provider.of<Data>(context).searchedData['paid'].length,
               itemBuilder: (BuildContext context, int index) {
                 return PaidCourseCard(
-                  title: data.searchedData[index]['title'],
-                  category: data.searchedData[index]['category'],
-//                  summary: data.searchedData[index]['summary'],
-                  level: data.searchedData[index]['level'],
-                  url: data.searchedData[index]['url'],
+                  title: data.searchedData['paid'][index]['title'],
+                  category: data.searchedData['paid'][index]['category'],
+                  level: data.searchedData['paid'][index]['level'],
+                  url: data.searchedData['paid'][index]['url'],
                 );
               },
             );
