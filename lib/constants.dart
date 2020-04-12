@@ -5,9 +5,13 @@ import 'package:flutter/material.dart';
 const Color fadedColor=Color(0xffF6F7FB);
 const Color fadedTextColor=Color(0xffC1C2C4);
 
-const kCoursesContainerBoxDecoration=BoxDecoration(
+const kFreeCoursesContainerBoxDecoration=BoxDecoration(
   borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0),topRight: Radius.circular(30.0)),
 color: fadedColor,
+);
+const kPaidCoursesContainerBoxDecoration=BoxDecoration(
+  //borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0),topRight: Radius.circular(30.0)),
+  color: Colors.white,
 );
 
 const kTitleTextStyle = TextStyle(
@@ -59,4 +63,8 @@ const kCardLevelStyle=TextStyle(
   fontSize: 12.0,
 );
 const kCardWidth=300.0;
-const kCardOuterPadding= EdgeInsets.symmetric(vertical: 40,horizontal: 10);
+const kFreeCardContainerHeight=270.0;
+const kFreeCardOuterPadding= EdgeInsets.symmetric(vertical: 40,horizontal: 10);
+
+const kPaidCardContainerHeight=200.0;
+const kPaidCardOuterPadding= EdgeInsets.symmetric(vertical: 20,horizontal: 10);

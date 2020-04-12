@@ -1,6 +1,6 @@
 import 'package:courselister/services/network_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:courselister/widgets/course_card.dart';
+import 'package:courselister/widgets/free_course_card.dart';
 import 'package:courselister/constants.dart';
 import 'package:courselister/services/data.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -10,8 +10,8 @@ class FreeCourseListSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 300,
-        decoration: kCoursesContainerBoxDecoration,
+        height: kFreeCardContainerHeight,
+        decoration: kFreeCoursesContainerBoxDecoration,
         child: Provider.of<Data>(context).isDone
             ? Container(
                 child: Consumer<Data>(builder: (context, data, child) {
@@ -19,7 +19,7 @@ class FreeCourseListSection extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: Provider.of<Data>(context).searchedData.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return CourseCard(
+                      return FreeCourseCard(
                         title: data.searchedData[index]['title'],
                         category: data.searchedData[index]['category'],
                         summary: data.searchedData[index]['summary'],

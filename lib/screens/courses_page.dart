@@ -1,5 +1,6 @@
 import 'package:courselister/constants.dart';
-import 'package:courselister/screens/free_course_list.dart';
+import 'package:courselister/screens/free_course_list_section.dart';
+import 'package:courselister/screens/paid_course_list_section.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:courselister/widgets/search_widget.dart';
@@ -33,9 +34,11 @@ class CoursesPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 40.0),
-               FreeCourseListSection(),
+               Expanded(flex:2,child: FreeCourseListSection()),
+            Expanded(child: PaidCourseListSection()),
           ],
         ),
+
       ),
     );
   }

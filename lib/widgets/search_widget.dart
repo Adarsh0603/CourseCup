@@ -1,4 +1,4 @@
-import 'package:courselister/screens/free_course_list.dart';
+import 'package:courselister/screens/free_course_list_section.dart';
 import 'package:courselister/services/network_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

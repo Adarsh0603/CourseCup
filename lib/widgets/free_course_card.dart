@@ -2,19 +2,19 @@ import 'package:courselister/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CourseCard extends StatelessWidget {
+class FreeCourseCard extends StatelessWidget {
   final String title;
   final String category;
   final String summary;
   final String level;
   final String url;
 
-  CourseCard({this.title, this.category, this.summary, this.level, this.url});
+  FreeCourseCard({this.title, this.category, this.summary, this.level, this.url});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: kCardOuterPadding,
+      padding: kFreeCardOuterPadding,
       child: SizedBox(
         width: kCardWidth,
         child: Material(
