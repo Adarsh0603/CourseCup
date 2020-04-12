@@ -1,11 +1,20 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const Color fadedColor=Color(0xffF6F7FB);
+const Color fadedTextColor=Color(0xffC1C2C4);
+
+const kCoursesContainerBoxDecoration=BoxDecoration(
+  borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0),topRight: Radius.circular(30.0)),
+color: fadedColor,
+);
+
 const kTitleTextStyle = TextStyle(
   fontSize: 30,
   fontWeight: FontWeight.bold,
 );
+
 
 const kSearchBoxInputDecoration = InputDecoration(
   filled: true,
@@ -23,3 +32,31 @@ const kCostToggleTextStyle=TextStyle(
   color: Colors.black54,
   fontWeight: FontWeight.bold
 );
+const kMarginLeft=20.0;
+
+
+
+
+
+//CARD StyleSheet
+
+const kCardTitleTextStyle=TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 16.0,
+);
+const kCardCategoryTextStyle=TextStyle(
+  color: fadedTextColor,
+);
+
+const kCardSummaryTextStyle=TextStyle(
+  color: fadedTextColor,
+);
+const kCardLevelStyle=TextStyle(
+  color: Colors.lightBlueAccent,
+  fontWeight: FontWeight.bold,
+  letterSpacing: 1.0,
+
+  fontSize: 12.0,
+);
+const kCardWidth=300.0;
+const kCardOuterPadding= EdgeInsets.symmetric(vertical: 40,horizontal: 10);

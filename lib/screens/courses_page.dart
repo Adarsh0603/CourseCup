@@ -1,7 +1,11 @@
 import 'package:courselister/constants.dart';
+import 'package:courselister/screens/free_course_list.dart';
+import 'package:courselister/services/network_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:courselister/widgets/search_widget.dart';
-import 'package:courselister/widgets/course_card.dart';
+import 'package:provider/provider.dart';
+import 'package:courselister/services/data.dart';
 
 class CoursesPage extends StatelessWidget {
   @override
@@ -13,31 +17,24 @@ class CoursesPage extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(
-                  top: 50.0, left: 20, right: 20, bottom: 0),
+                  top: 50.0, left: kMarginLeft, right: 20, bottom: 0),
               child: Column(
                 children: <Widget>[
-                  Text(
-                    "Hi Learner, Find your course",
-                    style: kTitleTextStyle,
+                  Consumer<Data>(
+                      builder: (context, data, child) {
+                        return Text(
+                          'Search Your Course',
+                          style: kTitleTextStyle,
+                        );
+                      }
                   ),
                   SizedBox(height: 20.0),
                   SearchWidget(),
                 ],
               ),
             ),
-            Expanded(
-              child: Container(
-                color: fadedColor,
-                child: ListView(
-                  children: <Widget>[
-                    CourseCard(),
-                    CourseCard(),
-                    CourseCard(),
-                    CourseCard(),
-                  ],
-                ),
-              ),
-            ),
+            SizedBox(height: 40.0),
+               FreeCourseListSection(),
           ],
         ),
       ),
