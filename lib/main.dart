@@ -6,6 +6,7 @@ void main() => runApp(CourseListerApp());
 class CourseListerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return ChangeNotifierProvider<Data>(
       create: (BuildContext context){
         return Data();

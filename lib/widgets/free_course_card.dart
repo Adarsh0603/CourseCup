@@ -1,8 +1,10 @@
 import 'package:courselister/constants.dart';
+import 'package:courselister/services/data.dart';
 import 'package:courselister/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart';
 
 class FreeCourseCard extends StatelessWidget {
   final String title;
@@ -10,17 +12,22 @@ class FreeCourseCard extends StatelessWidget {
   final String summary;
   final String level;
   final String url;
+  final String image;
 
   FreeCourseCard(
-      {this.title, this.category, this.summary, this.level, this.url});
+      {this.title,
+      this.category,
+      this.summary,
+      this.level,
+      this.url,
+      this.image});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onDoubleTap: () async{
-
-        if(await canLaunch(url))
-      launch(url);
+      onDoubleTap: () async {
+        if (await canLaunch(url))
+          launch(url);
         else
           print("not available");
       },
@@ -29,9 +36,9 @@ class FreeCourseCard extends StatelessWidget {
         child: SizedBox(
           width: kFreeCardWidth,
           child: Material(
-            shadowColor: Color(0x60ffffff),
-            shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+            shadowColor: kCardShadowColor,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0)),
             elevation: 10,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -44,7 +51,7 @@ class FreeCourseCard extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(Utils.trimString(category, 30).trimLeft(),
+                          Text(Utils.trimString(category, 20).trimLeft(),
                               style: kCardCategoryTextStyle),
                           SizedBox(height: 5.0),
                           SizedBox(
@@ -58,12 +65,16 @@ class FreeCourseCard extends StatelessWidget {
                       ),
                       SizedBox(width: 5),
                       Flexible(
-                        child: Container(
-                            width: 100,
-                            height: 60,
-                            child: Image(
-                              image: AssetImage('images/test.jpg'),
-                            )),
+                        child: Material(
+                          shadowColor: kCardShadowColor,
+                          elevation: 5.0,
+                          child: Container(
+                              width: 75,
+                              height: 75,
+                              child: Image(
+                                image: NetworkImage(image),
+                              )),
+                        ),
                       ),
                     ],
                   ),
@@ -86,9 +97,14 @@ class FreeCourseCard extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Image.asset(
-                            'images/Udacity.png',
-                            width: 32,
+                          Consumer<Data>(
+                            builder:
+                                (BuildContext context, data, Widget child) {
+                              return Image.asset(
+                                data.source=='udacity'?'images/Udacity.png':'images/Coursera.png',
+                                width: 32,
+                              );
+                            },
                           ),
                           Text(
                             level.toUpperCase(),

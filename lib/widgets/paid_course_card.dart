@@ -33,31 +33,31 @@ class PaidCourseCard extends StatelessWidget {
           width: kPaidCardWidth,
           child: Material(
 
-            shadowColor: Colors.white,
+            shadowColor: kCardShadowColor,
             color: paidCardColor,
             shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-            elevation: 10,
+            elevation: 5,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-              Text(Utils.trimString(category,20),
-                  style: kCardCategoryTextStyle),
+              Text(Utils.trimString(category,20).trimLeft(),
+                  style: kCardCategoryTextStyle.copyWith(fontSize: 12.0)),
 //                    SizedBox(height: 5.0),
               SizedBox(
                 width: kPaidCardWidth,
                 child: Text(
-                  Utils.trimString(title,30),
-                  style: kCardTitleTextStyle,
+                  Utils.trimString(title,50),
+                  style: kCardTitleTextStyle.copyWith(fontSize: 14),
                 ),
               ),
               Text(
                 level.toUpperCase(),
                 textAlign: TextAlign.end,
-                style: kCardLevelStyle,
+                style: kCardLevelStyle.copyWith(fontSize: 10.0),
               ),
 
 

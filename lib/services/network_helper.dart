@@ -1,17 +1,20 @@
 import 'package:http/http.dart';
 import 'dart:convert';
+
+import 'package:provider/provider.dart';
 class NetworkHelper {
-  String udacityUrl = 'https://swift-clarity-249611.firebaseio.com/.json';
+
+
+  Future<Map> getData(String searchData,String searchUrl) async {
 
 
 
-
-  Future<Map> getData(String searchData) async {
-    Response response = await get(udacityUrl);
-    var jsonResponse = jsonDecode(response.body);
+  Response response = await get(searchUrl);
+  var jsonResponse = jsonDecode(response.body);
 
     List<Map> searchedCourses = [];
     List<Map> searchedPaidCourses=[];
+
     for (Map course in jsonResponse)
       if (course['title']
           .contains(RegExp('$searchData', caseSensitive: false))) {
@@ -21,10 +24,12 @@ class NetworkHelper {
           searchedPaidCourses.add(course);
       }
 
+
     Map allCourses={
         'free':searchedCourses,
       'paid':searchedPaidCourses,
     };
     return allCourses;
+
   }
 }

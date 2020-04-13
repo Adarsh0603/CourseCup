@@ -1,28 +1,50 @@
 import 'package:flutter/cupertino.dart';
-class Data with ChangeNotifier{
-  Data();
-String searchData='NEw';
+import 'package:courselister/constants.dart';
+class Data with ChangeNotifier {
 
-Map searchedData;
-bool isDone = false;
 
-void updateStatus(bool status){
-  isDone=status;
-  notifyListeners();
-}
-void getLists(Map courseList)
-{
-  isDone=true;
-  searchedData=courseList;
-  print(searchedData);
-  notifyListeners();
-}
 
-void changeData(String value){
-  searchData=value;
-  isDone=false;
-  print(searchData);
-  notifyListeners();
+bool noUserInteraction=true;
+bool noData=false;
+  String searchString = '';
+  String source = 'udacity';
+  String selectedUrl=udacityUrl;
+  Map searchedData;
+  bool isDone=false;
 
-}
+
+  void updateBackgroundStatus(bool bgStatus){
+    noUserInteraction=bgStatus;
+    notifyListeners();
+  }
+  void updateStatus(bool status){
+    isDone=status;
+    notifyListeners();
+  }
+
+  void changeSource(String selectedSource) {
+    if (selectedSource == "udacity") selectedUrl = udacityUrl;
+    if (selectedSource == "coursera") selectedUrl = courseraUrl;
+    source = selectedSource;
+    notifyListeners();
+  }
+
+
+  void getLists(Map courseList) {
+    searchedData = courseList;
+    if(searchedData['free'].length==0){
+    noData=true;
+    }
+    else
+      noData=false;
+    isDone = true;
+
+    notifyListeners();
+  }
+
+  void changeData(String value) {
+    searchString = value;
+    isDone = false;
+    notifyListeners();
+  }
 }

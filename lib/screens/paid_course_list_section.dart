@@ -9,7 +9,7 @@ class PaidCourseListSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: kPaidCardContainerHeight,
-        decoration: kPaidCoursesContainerBoxDecoration,
+
         child: Provider.of<Data>(context).isDone
             ? Container(
           child: Consumer<Data>(builder: (context, data, child) {
@@ -28,6 +28,6 @@ class PaidCourseListSection extends StatelessWidget {
           }),
         )
             : SizedBox.expand(
-            child: Center(child: Image(image: AssetImage('images/no_data.png'), width: 150))));
+            child: Center()));
   }
 }
