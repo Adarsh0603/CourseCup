@@ -14,15 +14,22 @@ class PaidCourseCard extends StatelessWidget {
 
   PaidCourseCard({this.title, this.category, this.level, this.url});
 
-
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        final snackBar = SnackBar(
+          duration: Duration(seconds: 1),
+          content: Text(
+            'Double Tap to visit course site.',
 
-      onDoubleTap: () async{
-
-        if(await canLaunch(url))
+            style: TextStyle(fontFamily: 'CardFont'),
+          ),
+        );
+        Scaffold.of(context).showSnackBar(snackBar);
+      },
+      onDoubleTap: () async {
+        if (await canLaunch(url))
           launch(url);
         else
           print("not available");
@@ -32,11 +39,10 @@ class PaidCourseCard extends StatelessWidget {
         child: SizedBox(
           width: kPaidCardWidth,
           child: Material(
-
             shadowColor: kCardShadowColor,
             color: paidCardColor,
-            shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0)),
             elevation: 5,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -44,23 +50,20 @@ class PaidCourseCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-              Text(Utils.trimString(category,20).trimLeft(),
-                  style: kCardCategoryTextStyle.copyWith(fontSize: 12.0)),
-//                    SizedBox(height: 5.0),
-              SizedBox(
-                width: kPaidCardWidth,
-                child: Text(
-                  Utils.trimString(title,50),
-                  style: kCardTitleTextStyle.copyWith(fontSize: 14),
-                ),
-              ),
-              Text(
-                level.toUpperCase(),
-                textAlign: TextAlign.end,
-                style: kCardLevelStyle.copyWith(fontSize: 10.0),
-              ),
-
-
+                  Text(Utils.trimString(category, 20).trimLeft(),
+                      style: kCardCategoryTextStyle.copyWith(fontSize: 12.0)),
+                  SizedBox(
+                    width: kPaidCardWidth,
+                    child: Text(
+                      Utils.trimString(title, 30),
+                      style: kCardTitleTextStyle.copyWith(fontSize: 14),
+                    ),
+                  ),
+                  Text(
+                    level.toUpperCase(),
+                    textAlign: TextAlign.end,
+                    style: kCardLevelStyle.copyWith(fontSize: 10.0),
+                  ),
                 ],
               ),
             ),
@@ -70,3 +73,5 @@ class PaidCourseCard extends StatelessWidget {
     );
   }
 }
+
+

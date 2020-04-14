@@ -25,10 +25,21 @@ class FreeCourseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        final snackBar = SnackBar(
+          duration: Duration(seconds: 1),
+          content: Text(
+            'Double Tap to visit course site.',
+
+            style: TextStyle(fontFamily: 'CardFont'),
+          ),
+        );
+        Scaffold.of(context).showSnackBar(snackBar);
+      },
       onDoubleTap: () async {
-        if (await canLaunch(url))
+        if (await canLaunch(url)) {
           launch(url);
-        else
+        } else
           print("not available");
       },
       child: Padding(
@@ -38,8 +49,8 @@ class FreeCourseCard extends StatelessWidget {
           child: Material(
             shadowColor: kCardShadowColor,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0)),
-            elevation: 10,
+                borderRadius: BorderRadius.circular(40.0)),
+            elevation: 15,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -101,7 +112,9 @@ class FreeCourseCard extends StatelessWidget {
                             builder:
                                 (BuildContext context, data, Widget child) {
                               return Image.asset(
-                                data.source=='udacity'?'images/Udacity.png':'images/Coursera.png',
+                                data.source == 'udacity'
+                                    ? 'images/Udacity.png'
+                                    : 'images/Coursera.png',
                                 width: 32,
                               );
                             },

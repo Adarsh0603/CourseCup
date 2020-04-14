@@ -6,11 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:courselister/widgets/search_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:courselister/services/data.dart';
+import 'package:courselister/widgets/drawer_content.dart';
 
 class CoursesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+
+        child: DrawerContent(),
+      ),
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -20,18 +25,26 @@ class CoursesPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      top: 30, left: kMarginLeft, right: 20),
+                       left: kMarginLeft, right: 20),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Consumer<Data>(builder: (context, data, child) {
-                        return Text(
+                      IconButton(
+                        icon: Icon(Icons.dehaze),
+                        onPressed: () {
+                          Scaffold.of(context).openDrawer();
+                        },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left:16.0),
+                        child: Text(
                           'Search Your Course',
                           style: kTitleTextStyle,
-                        );
-                      }),
+                        ),
+                      ),
                       SizedBox(height: 20.0),
                       SearchWidget(),
                     ],
@@ -40,10 +53,11 @@ class CoursesPage extends StatelessWidget {
               ),
               SizedBox(height: 20.0),
               Expanded(
-                flex: 3,
+                flex: 6,
                 child: data.noUserInteraction
                     ? Container(
-                  padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
 //                        color: fadedColor,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +67,9 @@ class CoursesPage extends StatelessWidget {
                             ),
                             SizedBox(height: 10.0),
                             Text(
-                                'Don\'t know where to go..\nLet\'s find a path...',style: kStarterTextStyle,),
+                              'Don\'t know where to go..\nLet\'s find a path...',
+                              style: kStarterTextStyle,
+                            ),
                           ],
                         ),
                       )

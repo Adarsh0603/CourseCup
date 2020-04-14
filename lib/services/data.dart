@@ -1,24 +1,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:courselister/constants.dart';
+
 class Data with ChangeNotifier {
-
-
-
-bool noUserInteraction=true;
-bool noData=false;
+  bool mCachedCourseraData=false;
+  bool mCachedUdacityData=false;
+  bool mDataSourceChanged = true;
+  bool noUserInteraction = true;
+  bool noData = false;
   String searchString = '';
   String source = 'udacity';
-  String selectedUrl=udacityUrl;
+  String selectedUrl = udacityUrl;
   Map searchedData;
-  bool isDone=false;
+  bool isDone = false;
 
 
-  void updateBackgroundStatus(bool bgStatus){
-    noUserInteraction=bgStatus;
+  void courseraCacheStatus(bool status)
+  {
+    mCachedCourseraData=status;
     notifyListeners();
   }
-  void updateStatus(bool status){
-    isDone=status;
+
+  void udacityCacheStatus(bool status){
+   mCachedUdacityData=status;
+   notifyListeners();
+  }
+  void changeDataSource(bool dataSourceChanged) {
+    mDataSourceChanged = dataSourceChanged;
+    notifyListeners();
+  }
+
+  void updateBackgroundStatus(bool bgStatus) {
+    noUserInteraction = bgStatus;
+    notifyListeners();
+  }
+
+  void updateStatus(bool status) {
+    isDone = status;
     notifyListeners();
   }
 
@@ -29,14 +46,18 @@ bool noData=false;
     notifyListeners();
   }
 
+  void notifyDataStatus(bool dataAvailability) {
+    noData = dataAvailability;
+    isDone = dataAvailability;
+    notifyListeners();
+  }
 
   void getLists(Map courseList) {
     searchedData = courseList;
-    if(searchedData['free'].length==0){
-    noData=true;
-    }
-    else
-      noData=false;
+    if (searchedData['free'].length == 0) {
+      noData = true;
+    } else
+      noData = false;
     isDone = true;
 
     notifyListeners();
