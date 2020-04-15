@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:courselister/dataurls.dart';
+
 class Data with ChangeNotifier {
-  bool mCachedCourseraData=false;
-  bool mCachedUdacityData=false;
-  bool mCachedEdxData=false;
+  bool mCachedCourseraData = false;
+  bool mCachedUdacityData = false;
+  bool mCachedEdxData = false;
   bool mDataSourceChanged = true;
   bool noUserInteraction = true;
   bool noData = false;
@@ -13,23 +14,21 @@ class Data with ChangeNotifier {
   Map searchedData;
   bool isDone = false;
 
-
-  void courseraCacheStatus(bool status)
-  {
-    mCachedCourseraData=status;
+  void courseraCacheStatus(bool status) {
+    mCachedCourseraData = status;
     notifyListeners();
   }
 
-  void udacityCacheStatus(bool status){
-   mCachedUdacityData=status;
-   notifyListeners();
-  }
-
-
-  void edxCacheStatus(bool status){
-    mCachedEdxData=status;
+  void udacityCacheStatus(bool status) {
+    mCachedUdacityData = status;
     notifyListeners();
   }
+
+  void edxCacheStatus(bool status) {
+    mCachedEdxData = status;
+    notifyListeners();
+  }
+
   void changeDataSource(bool dataSourceChanged) {
     mDataSourceChanged = dataSourceChanged;
     notifyListeners();

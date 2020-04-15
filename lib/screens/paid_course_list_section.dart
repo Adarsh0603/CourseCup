@@ -1,4 +1,3 @@
-import 'package:courselister/main.dart';
 import 'package:flutter/material.dart';
 import 'package:courselister/constants.dart';
 import 'package:courselister/services/data.dart';

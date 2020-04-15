@@ -120,7 +120,6 @@ class NetworkHelper {
     return allCourses;
   }
 
-
   Future<Map> getEdxData(String searchData, String searchUrl) async {
     print('GetEdxData Called ');
     print(searchUrl);

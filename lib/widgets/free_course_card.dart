@@ -30,7 +30,6 @@ class FreeCourseCard extends StatelessWidget {
           duration: Duration(seconds: 1),
           content: Text(
             'Double Tap to visit course site.',
-
             style: TextStyle(fontFamily: 'CardFont'),
           ),
         );
@@ -78,13 +77,12 @@ class FreeCourseCard extends StatelessWidget {
                       Flexible(
                         child: Material(
                           shadowColor: kCardShadowColor,
+                          color: fadedColor,
                           elevation: 5.0,
                           child: Container(
-
                               width: 75,
                               height: 75,
                               child: Image(
-
                                 image: NetworkImage(image),
                               )),
                         ),
@@ -114,9 +112,12 @@ class FreeCourseCard extends StatelessWidget {
                             builder:
                                 (BuildContext context, data, Widget child) {
                               String sourceImage;
-                              if(data.source == 'udacity') sourceImage='images/Udacity.png';
-                              if(data.source == 'coursera') sourceImage='images/Coursera.png';
-                              if(data.source == 'edx') sourceImage='images/edx.png';
+                              if (data.source == 'udacity')
+                                sourceImage = 'images/Udacity.png';
+                              if (data.source == 'coursera')
+                                sourceImage = 'images/Coursera.png';
+                              if (data.source == 'edx')
+                                sourceImage = 'images/edx.png';
 
                               return Image.asset(
                                 sourceImage,

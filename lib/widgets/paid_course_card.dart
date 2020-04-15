@@ -22,7 +22,6 @@ class PaidCourseCard extends StatelessWidget {
           duration: Duration(seconds: 1),
           content: Text(
             'Double Tap to visit course site.',
-
             style: TextStyle(fontFamily: 'CardFont'),
           ),
         );
@@ -73,5 +72,3 @@ class PaidCourseCard extends StatelessWidget {
     );
   }
 }
-
-

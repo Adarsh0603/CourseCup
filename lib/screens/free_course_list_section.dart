@@ -34,8 +34,10 @@ class FreeCourseListSection extends StatelessWidget {
                 String summary;
                 if (data.source == 'udacity')
                   summary = data.searchedData['free'][index]['summary'];
-                if (data.source == 'coursera') summary = 'Check course site for details.';
-                if (data.source == 'edx') summary = 'Check course site for details.';
+                if (data.source == 'coursera')
+                  summary = 'Visit course site for more details.';
+                if (data.source == 'edx')
+                  summary = 'Visit course site for more details.';
 
                 return FreeCourseCard(
                   title: data.searchedData['free'][index]['title'],
