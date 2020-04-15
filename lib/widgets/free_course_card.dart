@@ -66,7 +66,7 @@ class FreeCourseCard extends StatelessWidget {
                               style: kCardCategoryTextStyle),
                           SizedBox(height: 5.0),
                           SizedBox(
-                            width: kFreeCardWidth / 2,
+                            width: kFreeCardWidth / 1.8,
                             child: Text(
                               Utils.trimString(title, 50),
                               style: kCardTitleTextStyle,
@@ -80,9 +80,11 @@ class FreeCourseCard extends StatelessWidget {
                           shadowColor: kCardShadowColor,
                           elevation: 5.0,
                           child: Container(
+
                               width: 75,
                               height: 75,
                               child: Image(
+
                                 image: NetworkImage(image),
                               )),
                         ),
@@ -118,7 +120,7 @@ class FreeCourseCard extends StatelessWidget {
 
                               return Image.asset(
                                 sourceImage,
-                                width: 32,
+                                width: 28,
                               );
                             },
                           ),

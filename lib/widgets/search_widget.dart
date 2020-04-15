@@ -78,13 +78,13 @@ class SearchWidget extends StatelessWidget {
                   underline: SizedBox(
                     height: 0,
                   ),
-                  iconEnabledColor: Colors.white,
+                  iconEnabledColor: backgroundColor,
                   value: data.source,
                   items: [
                     DropdownMenuItem(
                       child: Image.asset(
                         'images/Udacity.png',
-                        width: 32,
+                        width: 28,
                       ),
                       value: 'udacity',
                     ),

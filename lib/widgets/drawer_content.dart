@@ -48,15 +48,23 @@ class DrawerContent extends StatelessWidget {
                         fontWeight: FontWeight.w900,
                       ),
                     ),
+                    Text(
+                      'v.1.0',
+                      style: TextStyle(
+                        fontFamily:'BlockFont',
+                        fontSize: 12.0,
+                        color: Colors.black38,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
 
                   ],
                 ),
               ),
-              Text('Version 1.0',style: kCardCategoryTextStyle.copyWith(fontWeight: FontWeight.bold),),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  'Get the best rated free courses from top online course providers : udacity, coursera and edx.',
+                  'Search from over 2100 free courses available on top online course providers udacity, coursera and edx.',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontSize: 22.0,
@@ -69,18 +77,38 @@ class DrawerContent extends StatelessWidget {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(Icons.code,color: Colors.black38,),
-                Text(' with ',style: kCardTitleTextStyle.copyWith(fontFamily: 'ContentFont',color: Colors.black38),),
-                Icon(Icons.favorite,color: Colors.red,),
 
-                Text(' by Adarsh',style: kCardTitleTextStyle.copyWith(fontFamily: 'ContentFont',color: Colors.black38),)
-              ],
-            ),
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'NOTE: Coursera courses comes with paid certificates. You can audit the courses and get all content for free.',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    color: Colors.black38,
+                    fontFamily: 'ContentFont',
+                    height: 1.2,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+Divider(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons.code,color: Colors.black38,),
+                    Text(' with ',style: kCardTitleTextStyle.copyWith(fontFamily: 'ContentFont',color: Colors.black38),),
+                    Icon(Icons.favorite,color: Colors.red,),
+
+                    Text(' by Adarsh',style: kCardTitleTextStyle.copyWith(fontFamily: 'ContentFont',color: Colors.black38),)
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
 

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:courselister/constants.dart';
-
+import 'package:courselister/dataurls.dart';
 class Data with ChangeNotifier {
   bool mCachedCourseraData=false;
   bool mCachedUdacityData=false;

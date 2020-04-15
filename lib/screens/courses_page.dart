@@ -40,7 +40,7 @@ class _CoursesPageState extends State<CoursesPage> {
         child: DrawerContent(),
       ),
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child:
             Consumer<Data>(builder: (BuildContext context, data, Widget child) {
@@ -55,21 +55,28 @@ class _CoursesPageState extends State<CoursesPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.dehaze),
-                        onPressed: () {
-                          Scaffold.of(context).openDrawer();
-                        },
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left:16.0),
-                        child: Text(
-                          'Search Your Course',
-                          style: kTitleTextStyle,
+                      Expanded(
+                        flex:2,
+                        child: IconButton(
+                          icon: Icon(Icons.dehaze),
+                          onPressed: () {
+                            Scaffold.of(context).openDrawer();
+                          },
                         ),
                       ),
-                      SizedBox(height: 20.0),
-                      SearchWidget(),
+                      SizedBox(height: 10.0),
+                      Expanded(
+                        flex: 3,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left:16.0),
+                          child: Text(
+                            'What you want to learn?',
+                            style: kTitleTextStyle,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 10.0),
+                      Expanded(flex:3,child: SearchWidget()),
                     ],
                   ),
                 ),
@@ -83,16 +90,22 @@ class _CoursesPageState extends State<CoursesPage> {
                             vertical: 10.0, horizontal: 20.0),
 //                        color: fadedColor,
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            Image.asset(
-                              'images/starter.png',
+                            Center(
+                              child: Image.asset(
+                                'images/starter.png',
+                                width:200,
+                              ),
                             ),
-//                            SizedBox(height: 10.0),
-//                            Text(
-//                              'Don\'t know where to go..\nLet\'s find a path...',
-//                              style: kStarterTextStyle,
-//                            ),
+                            SizedBox(height: 10.0),
+                            Text(
+
+                              'Don\'t know where to go!\nLet\'s find a path...',
+                              textAlign: TextAlign.center,
+                              style: kStarterTextStyle,
+                            ),
                           ],
                         ),
                       )

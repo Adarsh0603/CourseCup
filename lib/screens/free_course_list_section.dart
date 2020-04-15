@@ -64,8 +64,9 @@ class FreeCourseListSection extends StatelessWidget {
             'No Courses Found.',
             style: kErrorTextStyle.copyWith(fontSize: 16.0),
           ),
+          SizedBox(height: 5.0),
           Text(
-            'Check your internet connection\n or search a relevant course.',
+            'Check your internet connection\nor search a relevant course.',
             style: kErrorTextStyle,
           )
         ],

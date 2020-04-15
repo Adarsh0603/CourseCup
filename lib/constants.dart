@@ -1,17 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-const String udacityUrl =
-    'https://swift-clarity-249611.firebaseio.com/.json';
-const String courseraUrl =
-    'https://courseradata-48824.firebaseio.com/.json';
-const String edxUrl='https://edxdata-bdbcf.firebaseio.com/.json';
-
 const Color fadedColor = Color(0xffF6F7FB);
 const Color fadedTextColor = Color(0xffC1C2C4);
 const Color paidCardColor = Color(0xffEBFAFF);
 const Color cupColor=Color(0xff28B351);
-
+const Color backgroundColor=Color(0xffFAFAFA);
 
 const kStarterTextStyle = TextStyle(
   fontSize: 16.0,
@@ -92,8 +85,7 @@ const kCardLevelStyle = TextStyle(
 );
 const kFreeCardWidth = 270.0;
 const kFreeCardContainerHeight = 0.0;
-const kFreeCardOuterPadding = EdgeInsets.symmetric(
-    vertical: 50, horizontal: 20);
+const kFreeCardOuterPadding = EdgeInsets.fromLTRB(20,65,20,40);
 
 
 const kPaidCardWidth = 200.0;
