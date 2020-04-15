@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:courselister/services/network_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +52,14 @@ class SearchWidget extends StatelessWidget {
                                     data.searchString, data.selectedUrl));
                             data.courseraCacheStatus(true);
                           }
+                          else if (data.source == 'edx') {
+                            data.getLists(data.mCachedEdxData
+                                ? await networkHelper.getEdxCachedData(
+                                data.searchString, data.selectedUrl)
+                                : await networkHelper.getEdxData(
+                                data.searchString, data.selectedUrl));
+                            data.edxCacheStatus(true);
+                          }
                           data.changeDataSource(false);
                         }
                       } on SocketException catch (_) {
@@ -82,11 +89,19 @@ class SearchWidget extends StatelessWidget {
                       value: 'udacity',
                     ),
                     DropdownMenuItem(
+
                       child: Image.asset(
                         'images/Coursera.png',
                         width: 32,
                       ),
                       value: 'coursera',
+                    ),
+                    DropdownMenuItem(
+                      child: Image.asset(
+                        'images/edx.png',
+                        width: 32,
+                      ),
+                      value: 'edx',
                     ),
                   ],
                   onChanged: (value) async {
@@ -120,9 +135,20 @@ class SearchWidget extends StatelessWidget {
                         }
                         if (value == 'udacity' &&
                             data.mCachedUdacityData == true) {
-                          print('Yess');
                           data.getLists(
                               await networkHelper.getUdacityCachedData(
+                                  data.searchString, data.selectedUrl));
+                        }
+                        if (value == 'edx' &&
+                            data.mCachedEdxData == false) {
+                          data.getLists(await networkHelper.getEdxData(
+                              data.searchString, data.selectedUrl));
+                          data.edxCacheStatus(true);
+                        }
+                        if (value == 'edx' &&
+                            data.mCachedEdxData == true) {
+                          data.getLists(
+                              await networkHelper.getEdxCachedData(
                                   data.searchString, data.selectedUrl));
                         }
                         data.changeDataSource(false);

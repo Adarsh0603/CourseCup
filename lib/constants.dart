@@ -5,6 +5,7 @@ const String udacityUrl =
     'https://swift-clarity-249611.firebaseio.com/.json';
 const String courseraUrl =
     'https://courseradata-48824.firebaseio.com/.json';
+const String edxUrl='https://edxdata-bdbcf.firebaseio.com/.json';
 
 const Color fadedColor = Color(0xffF6F7FB);
 const Color fadedTextColor = Color(0xffC1C2C4);

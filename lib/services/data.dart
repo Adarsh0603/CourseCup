@@ -4,6 +4,7 @@ import 'package:courselister/constants.dart';
 class Data with ChangeNotifier {
   bool mCachedCourseraData=false;
   bool mCachedUdacityData=false;
+  bool mCachedEdxData=false;
   bool mDataSourceChanged = true;
   bool noUserInteraction = true;
   bool noData = false;
@@ -24,6 +25,12 @@ class Data with ChangeNotifier {
    mCachedUdacityData=status;
    notifyListeners();
   }
+
+
+  void edxCacheStatus(bool status){
+    mCachedEdxData=status;
+    notifyListeners();
+  }
   void changeDataSource(bool dataSourceChanged) {
     mDataSourceChanged = dataSourceChanged;
     notifyListeners();
@@ -42,6 +49,8 @@ class Data with ChangeNotifier {
   void changeSource(String selectedSource) {
     if (selectedSource == "udacity") selectedUrl = udacityUrl;
     if (selectedSource == "coursera") selectedUrl = courseraUrl;
+    if (selectedSource == "edx") selectedUrl = edxUrl;
+
     source = selectedSource;
     notifyListeners();
   }

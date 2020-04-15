@@ -111,10 +111,13 @@ class FreeCourseCard extends StatelessWidget {
                           Consumer<Data>(
                             builder:
                                 (BuildContext context, data, Widget child) {
+                              String sourceImage;
+                              if(data.source == 'udacity') sourceImage='images/Udacity.png';
+                              if(data.source == 'coursera') sourceImage='images/Coursera.png';
+                              if(data.source == 'edx') sourceImage='images/edx.png';
+
                               return Image.asset(
-                                data.source == 'udacity'
-                                    ? 'images/Udacity.png'
-                                    : 'images/Coursera.png',
+                                sourceImage,
                                 width: 32,
                               );
                             },

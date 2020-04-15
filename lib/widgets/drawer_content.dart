@@ -1,8 +1,6 @@
 import 'package:courselister/constants.dart';
-import 'package:courselister/widgets/provider_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class DrawerContent extends StatelessWidget {
 
@@ -58,7 +56,7 @@ class DrawerContent extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  'Get the best rated free courses from top online course providers Udacity and Coursera.\n\nMore Courses:',
+                  'Get the best rated free courses from top online course providers : udacity, coursera and edx.',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontSize: 22.0,
@@ -68,14 +66,6 @@ class DrawerContent extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-              ),
-              Column(
-                children: <Widget>[
-                  ProviderTile(url: 'https://www.edx.org/course',imageAddress: 'edx.png',siteName: 'edx',),
-                  Divider(),
-                  ProviderTile(url: 'https://www.udemy.com/courses/search/?price=price-free&q=free&sort=relevance&src=ukw',imageAddress: 'udemy.png',siteName: 'Udemy',),
-                  Divider(),
-                ],
               ),
             ],
           ),
