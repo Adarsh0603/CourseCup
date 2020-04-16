@@ -1,4 +1,5 @@
 # CourseCup
+Soon on Google Play<br/>
 CourseCup searches for free courses available on top online course providers Udacity, Coursera and edx.<br/>
 Get results from over 2100 free courses with a single search
 
