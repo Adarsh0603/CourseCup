@@ -6,12 +6,17 @@ Get results from over 2100 free courses with a single search
 
 
 # Screenshots
-![search_page](images/search.jpg)
+![search_page](images/search1.jpg)
 <br/>
 <br/>
 <br/>
 
-![word_page](images/word.jpg)
+![seacrh2](images/search2.jpg)
+<br/>
+<br/>
+<br/>
+
+![seacrh2](images/search2.jpg)
 
 
 
